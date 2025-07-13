@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delish Food Delivery</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  scroll-behavior: smooth;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ff4e50;
+  color: white;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header.scrolled {
+  background: #e04446;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.9);
+  color: #ff4e50;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #ff4e50;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+main {
+  margin-top: 80px;
+  text-align: center;
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+section:nth-child(even) {
+  background: #f9f9f9;
+}
+
+h1, h2 {
+  color: #ff4e50;
+  margin-bottom: 1rem;
+}
+
+p {
+  max-width: 800px;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+}
+
+.cta {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background: #ff4e50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cta:hover {
+  background: #e04446;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}
+
+/* Beautiful Menu */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+}
+
+.menu-item {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  margin: 0.8rem 0;
+  color: #ff4e50;
+  font-size: 1.4rem;
+}
+
+.menu-item p {
+  padding: 0 1rem 1.2rem;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+footer a {
+  color: #f9d423;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #ff4e50;
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="nav-container">
+    <div class="logo">🍴 Delish</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Home -->
+  <section id="home" style="
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+    color: #fff;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  ">
+    <h1 style="font-size: 2.8rem; margin-bottom: 1rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+      Fresh, Delicious Food Delivered to You
+    </h1>
+    <p style="max-width: 700px; font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.4);">
+      Experience the taste of joy with our freshly prepared meals delivered hot to your doorstep. 
+      From juicy burgers to healthy salads, we’ve got your cravings covered!
+    </p>
+    <button class="cta">Order Now</button>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu">
+    <h2>Our Signature Menu</h2>
+    <p>Discover our carefully curated dishes, made with love & the finest ingredients:</p>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg" alt="Burger">
+        <h3>Classic Burger</h3>
+        <p>Succulent beef patty, melted cheese, crisp lettuce & our special sauce, all in a fluffy bun. A timeless delight!</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg" alt="Pizza">
+        <h3>Cheesy Pizza</h3>
+        <p>Golden crust loaded with gooey cheese and fresh toppings — baked to perfection in our stone oven.</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Healthy Salad">
+        <h3>Healthy Salad</h3>
+        <p>Fresh seasonal greens tossed with crunchy veggies, nuts & a zesty dressing for a guilt-free delight.</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Creamy Pasta">
+        <h3>Creamy Pasta</h3>
+        <p>Al dente pasta enveloped in a rich, creamy sauce with herbs & cheese — comfort food at its finest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" style="background: #fff; padding: 4rem 2rem;">
+    <h2>About Us</h2>
+    <div style="
+      max-width: 1100px;
+      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      text-align: left;
+    ">
+      <div style="flex: 1; min-width: 280px;">
+        <img src="https://images.pexels.com/photos/262945/pexels-photo-262945.jpeg?auto=compress&cs=tinysrgb&w=800" 
+             alt="Our Team" 
+             style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #ff4e50;">Who We Are</h3>
+        <p style="line-height: 1.6; font-size: 1rem; color: #555;">
+          At <strong>Delish</strong>, we’re more than just a food delivery service — we’re a team of food lovers, chefs, and innovators dedicated to bringing happiness to your table. Every dish we create is crafted with fresh, high-quality ingredients and a generous sprinkle of passion.
+        </p>
+        <p style="line-height: 1.6; font-size: 1rem; color: #555;">
+          Whether you crave comfort food or healthy options, we deliver quickly and with care. Our goal? To make your dining experience unforgettable, one bite at a time.
+        </p>
+        <button class="cta">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beautiful Contact -->
+  <section id="contact" style="background:#f9f9f9; padding:4rem 2rem;">
+    <h2>Contact Us</h2>
+    <div style="max-width:1100px; margin:2rem auto; display:flex; flex-wrap:wrap; gap:2rem; text-align:left;">
+      <div style="flex:1; min-width:280px;">
+        <h3 style="color:#ff4e50;">Get in Touch</h3>
+        <p>📍 <strong>Address:</strong> 123 Foodie Street, Flavor Town</p>
+        <p>📞 <strong>Phone:</strong> +91 6289067093</p>
+        <p>✉️ <strong>Email:</strong> <a href="mailto:contact@delish.com">contact@delish.com</a></p>
+        <p>Follow us on <a href="#">Instagram</a>, <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
+      </div>
+      <div style="flex:1; min-width:280px;">
+        <form style="display:flex; flex-direction:column; gap:1rem;">
+          <input type="text" placeholder="Your Name" style="padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+          <input type="email" placeholder="Your Email" style="padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+          <textarea placeholder="Your Message" rows="4" style="padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+          <button class="cta" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Delish. All rights reserved.</p>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
+</script>
+</body>
+</html>
